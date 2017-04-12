@@ -1,0 +1,17 @@
+<launch>
+  <!--- Run move_base -->
+  <!--<include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml" /> -->
+
+  <!--- Run Mapping -->
+  <include file="$(find turtlebot_navigation)/launch/gmapping_demo.launch" />
+
+  <!--- Run rviz -->
+  <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" />
+
+  <!--- Run AMCL -->
+  <!--<include file="$(find turtlebot_navigation)/launch/amcl_demo.launch" /> -->
+
+  <!--- Create log file -->
+  <node ns="athome_log" pkg="rosbag" type="record" name="logging_navigation" args="-o log/athome_navigation_dynamic --node /rviz/move_base_rviz" />
+</launch>
+
